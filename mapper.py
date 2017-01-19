@@ -23,7 +23,7 @@ def emit_tokens(text, article_id, identifier):
     #try to normalize to ascii
     tokens = [check_and_return_token(token) for token in tokens]
     
-    #remove wrong tokens from list
+    #remove False tokens from list
     tokens = [token for token in tokens if token]
 
     token_count = Counter(tokens)
@@ -39,7 +39,7 @@ def check_and_return_token(str):
     final_token = unidecode(token)
     if len(token) != len(final_token):
         return False
-        
+
     if not token.isalpha():
         return False
 
